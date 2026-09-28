@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jomon & Josmy | Wedding Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --green: #174f3d;
+    --dark-green: #0b3025;
+    --gold: #c9a24e;
+    --light-gold: #efd58a;
+    --cream: #fffaf0;
+    --white: #ffffff;
+    --text: #33443d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+/* =========================
+   OPENING SCREEN
+========================= */
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background:
+        radial-gradient(circle at center, #28654f 0%, #123d30 45%, #071f18 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 1.2s ease;
+}
+
+.opening.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.opening-content {
+    color: white;
+    position: relative;
+    z-index: 3;
+    animation: openingIn 2s ease;
+}
+
+.save {
+    letter-spacing: 6px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--light-gold);
+    margin-bottom: 20px;
+}
+
+.opening-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(55px, 12vw, 100px);
+    color: white;
+    line-height: 1;
+}
+
+.opening-and {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--light-gold);
+    font-size: 32px;
+    margin: 10px;
+}
+
+.open-date {
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin: 25px 0 35px;
+}
+
+.open-button {
+    border: 1px solid var(--light-gold);
+    background: transparent;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 11px;
+    transition: .4s;
+}
+
+.open-button:hover {
+    background: var(--gold);
+    color: var(--dark-green);
+    transform: scale(1.05);
+}
+
+@keyframes openingIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   PARTICLES
+========================= */
+
+.particle {
+    position: fixed;
+    width: 3px;
+    height: 3px;
+    background: var(--light-gold);
+    border-radius: 50%;
+    opacity: .6;
+    pointer-events: none;
+    z-index: 2;
+    animation: floatParticle linear infinite;
+}
+
+@keyframes floatParticle {
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+    20% {
+        opacity: .7;
+    }
+    80% {
+        opacity: .7;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   PETALS
+========================= */
+
+.petal {
+    position: fixed;
+    top: -30px;
+    color: #efd8a1;
+    font-size: 18px;
+    pointer-events: none;
+    z-index: 20;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: .8;
+    }
+    100% {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 40%, #286650, #174f3d 45%, #0b3025 100%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(239,213,138,.2);
+    border-radius: 50%;
+    animation: rotateSlow 30s linear infinite;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border: 1px solid rgba(239,213,138,.1);
+    border-radius: 50%;
+    animation: rotateSlow 40s linear infinite reverse;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 4;
+    padding: 30px;
+}
+
+.hero-small {
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    color: var(--light-gold);
+    font-size: 11px;
+    animation: fadeUp 1.5s ease;
+}
+
+.hero-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(70px, 14vw, 150px);
+    line-height: .95;
+    margin: 25px 0;
+    animation: fadeUp 1.8s ease;
+}
+
+.hero-names span {
+    display: block;
+}
+
+.hero-and {
+    color: var(--light-gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    margin: 10px;
+}
+
+.hero-date {
+    letter-spacing: 6px;
+    font-size: 13px;
+    animation: fadeUp 2.2s ease;
+}
+
+.hero-frame {
+    position: absolute;
+    inset: 30px;
+    border: 1px solid rgba(239,213,138,.4);
+    pointer-events: none;
+}
+
+.hero-frame::before,
+.hero-frame::after {
+    content: "✦";
+    position: absolute;
+    color: var(--light-gold);
+    font-size: 22px;
+}
+
+.hero-frame::before {
+    top: -13px;
+    left: 50%;
+}
+
+.hero-frame::after {
+    bottom: -13px;
+    left: 50%;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateSlow {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: var(--dark-green);
+    color: var(--light-gold);
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    transition: .3s;
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+}
+
+.music-btn.playing {
+    animation: musicPulse 1.4s infinite;
+}
+
+@keyframes musicPulse {
+    0%,100% {
+        box-shadow: 0 0 0 0 rgba(201,162,78,.5);
+    }
+    50% {
+        box-shadow: 0 0 0 12px rgba(201,162,78,0);
+    }
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section {
+    padding: 100px 20px;
+}
+
+.section-inner {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title small {
+    color: var(--gold);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+}
+
+.section-title h2 {
+    font-family: 'Great Vibes', cursive;
+    color: var(--green);
+    font-size: 65px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    text-align: center;
+    background: white;
+}
+
+.intro-symbol {
+    color: var(--gold);
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.intro p {
+    max-width: 750px;
+    margin: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    line-height: 1.7;
+}
+
+/* =========================
+   COUPLE
+========================= */
+
+.couple {
+    background: #f8f2e5;
+}
+
+.couple-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.person {
+    width: 320px;
+    text-align: center;
+}
+
+.person h3 {
+    font-family: 'Great Vibes', cursive;
+    color: var(--green);
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.person p {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.couple-heart {
+    font-size: 40px;
+    color: var(--gold);
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    20% { transform: scale(1.18); }
+    40% { transform: scale(1); }
+}
+
+/* =========================
+   VECTOR COUPLE
+========================= */
+
+.character {
+    height: 330px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.character svg {
+    width: 260px;
+    height: 320px;
+    overflow: visible;
+}
+
+/* Bride animation */
+.bride-svg {
+    animation: brideFloat 4s ease-in-out infinite;
+}
+
+@keyframes brideFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Groom animation */
+.groom-svg {
+    animation: groomFloat 4s ease-in-out infinite .5s;
+}
+
+@keyframes groomFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+.veil {
+    animation: veilMove 3s ease-in-out infinite;
+    transform-origin: top center;
+}
+
+@keyframes veilMove {
+    0%,100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+.flower {
+    animation: flowerMove 2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes flowerMove {
+    50% {
+        transform: rotate(7deg) scale(1.05);
+    }
+}
+
+.sparkle {
+    animation: sparkle 1.8s ease-in-out infinite;
+}
+
+.sparkle:nth-child(2) {
+    animation-delay: .5s;
+}
+
+.sparkle:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+    0%,100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown {
+    background: var(--green);
+    color: white;
+    text-align: center;
+}
+
+.countdown .section-title h2 {
+    color: white;
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.time-box {
+    width: 130px;
+    padding: 25px 10px;
+    border: 1px solid rgba(239,213,138,.45);
+    background: rgba(255,255,255,.04);
+}
+
+.time-box strong {
+    display: block;
+    color: var(--light-gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.time-box span {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 9px;
+}
+
+/* =========================
+   WEDDING EVENT
+========================= */
+
+.event {
+    background: white;
+}
+
+.event-card {
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #e6d9b9;
+    padding: 60px 30px;
+    text-align: center;
+    position: relative;
+}
+
+.event-card::before {
+    content: "✦";
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0 20px;
+    color: var(--gold);
+}
+
+.event-icon {
+    font-size: 42px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.event-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    color: var(--green);
+    margin-bottom: 20px;
+}
+
+.event-date {
+    font-size: 16px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.event-location {
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: var(--green);
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.map-btn:hover {
+    background: var(--gold);
+    color: var(--dark-green);
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+    background: #f8f2e5;
+}
+
+.timeline-container {
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #d9c99f;
+}
+
+.timeline-item {
+    width: 50%;
+    padding: 20px 40px;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: 50%;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: var(--gold);
+    border-radius: 50%;
+    top: 28px;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -7px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -7px;
+}
+
+.timeline-item h3 {
+    color: var(--green);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+}
+
+.timeline-item p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 7px;
+}
+
+/* =========================
+   RSVP
+========================= */
+
+.rsvp {
+    text-align: center;
+    background: var(--green);
+    color: white;
+}
+
+.rsvp .section-title h2 {
+    color: white;
+}
+
+.rsvp p {
+    max-width: 600px;
+    margin: auto auto 30px;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.rsvp-btn {
+    display: inline-block;
+    padding: 16px 35px;
+    border: 1px solid var(--light-gold);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 10px;
+    transition: .3s;
+}
+
+.rsvp-btn:hover {
+    background: var(--gold);
+    color: var(--dark-green);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #071f18;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.footer-names {
+    font-family: 'Great Vibes', cursive;
+    color: var(--light-gold);
+    font-size: 48px;
+}
+
+footer p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-top: 15px;
+    opacity: .6;
+}
+
+/* =========================
+   CONFETTI
+========================= */
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    width: 8px;
+    height: 12px;
+    z-index: 9998;
+    pointer-events: none;
+    animation: confettiFall 3s linear forwards;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width: 700px) {
+
+    section {
+        padding: 75px 18px;
+    }
+
+    .hero-frame {
+        inset: 15px;
+    }
+
+    .hero-names {
+        font-size: 75px;
+    }
+
+    .section-title h2 {
+        font-size: 52px;
+    }
+
+    .intro p {
+        font-size: 21px;
+    }
+
+    .couple-container {
+        gap: 10px;
+    }
+
+    .person {
+        width: 100%;
+    }
+
+    .couple-heart {
+        margin: 0;
+    }
+
+    .character {
+        height: 300px;
+    }
+
+    .character svg {
+        width: 235px;
+        height: 290px;
+    }
+
+    .timer {
+        gap: 10px;
+    }
+
+    .time-box {
+        width: 105px;
+        padding: 18px 5px;
+    }
+
+    .time-box strong {
+        font-size: 38px;
+    }
+
+    .timeline-container::before {
+        left: 12px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 40px;
+        padding-right: 10px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot,
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 6px;
+        right: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<div class="opening" id="opening">
+
+    <div class="opening-content">
+
+        <div class="save">
+            Together With Their Families
+        </div>
+
+        <div class="opening-names">
+            Jomon
+        </div>
+
+        <div class="opening-and">
+            &
+        </div>
+
+        <div class="opening-names">
+            Josmy
+        </div>
+
+        <div class="open-date">
+            24 · APRIL · 2027
+        </div>
+
+        <button class="open-button" onclick="openInvitation()">
+            Open Invitation
+        </button>
+
+    </div>
+</div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio id="weddingMusic" loop preload="auto">
+    <source src="wedding-music.wav" type="audio/wav">
+</audio>
+
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Wedding Music">
+    🎵
+</button>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-frame"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            The Beginning of Forever
+        </div>
+
+        <div class="hero-names">
+            <span>Jomon</span>
+
+            <div class="hero-and">
+                &
+            </div>
+
+            <span>Josmy</span>
+        </div>
+
+        <div class="hero-date">
+            24 · APRIL · 2027
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+    <div class="section-inner">
+
+        <div class="intro-symbol">
+            ❦
+        </div>
+
+        <p>
+            Two hearts, two lives and one beautiful journey.
+            With joyful hearts and grateful souls, we invite you
+            to celebrate the beginning of our forever together.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COUPLE
+========================= -->
+
+<section class="couple">
+
+    <div class="section-inner">
+
+        <div class="section-title">
+
+            <small>
+                The Couple
+            </small>
+
+            <h2>
+                Meet the Bride & Groom
+            </h2>
+
+        </div>
+
+
+        <div class="couple-container">
+
+
+            <!-- GROOM -->
+
+            <div class="person">
+
+                <div class="character">
+
+                    <svg class="groom-svg"
+                         viewBox="0 0 260 320"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <!-- Sparkles -->
+
+                        <g fill="#c9a24e">
+                            <text class="sparkle" x="20" y="75" font-size="20">✦</text>
+                            <text class="sparkle" x="220" y="100" font-size="15">✦</text>
+                            <text class="sparkle" x="30" y="200" font-size="12">✦</text>
+                        </g>
+
+                        <!-- Body -->
+
+                        <path
+                            d="M75 310
+                               C75 245 85 210 105 195
+                               L155 195
+                               C175 210 185 245 185 310Z"
+                            fill="#172b27"/>
+
+                        <!-- Shirt -->
+
+                        <path
+                            d="M108 198 L130 235 L152 198
+                               L145 190 L115 190Z"
+                            fill="#ffffff"/>
+
+                        <!-- Tie -->
+
+                        <path
+                            d="M124 205 L136 205 L140 270 L130 283 L120 270Z"
+                            fill="#c9a24e"/>
+
+                        <!-- Head -->
+
+                        <ellipse
+                            cx="130"
+                            cy="142"
+                            rx="43"
+                            ry="50"
+                            fill="#c98262"/>
+
+                        <!-- Hair -->
+
+                        <path
+                            d="M88 140
+                               C84 92 105 72 132 75
+                               C165 76 178 101 171 140
+                               C158 120 147 112 130 112
+                               C111 112 98 122 88 140Z"
+                            fill="#202522"/>
+
+                        <!-- Ear -->
+
+                        <circle cx="87" cy="145" r="8" fill="#c98262"/>
+                        <circle cx="173" cy="145" r="8" fill="#c98262"/>
+
+                        <!-- Eyes -->
+
+                        <circle cx="115" cy="145" r="3" fill="#222"/>
+                        <circle cx="145" cy="145" r="3" fill="#222"/>
+
+                        <!-- Nose -->
+
+                        <path
+                            d="M130 148 L126 161 L133 162"
+                            fill="none"
+                            stroke="#8d503f"
+                            stroke-width="2"/>
+
+                        <!-- Smile -->
+
+                        <path
+                            d="M119 172 Q130 180 141 172"
+                            fill="none"
+                            stroke="#7d4034"
+                            stroke-width="2"/>
+
+                        <!-- Suit -->
+
+                        <path
+                            d="M75 310 L92 220 L115 198
+                               L130 235 L145 198 L168 220
+                               L185 310Z"
+                            fill="#18362e"/>
+
+                        <!-- Suit lapels -->
+
+                        <path
+                            d="M115 198 L130 235 L120 255 L101 218Z"
+                            fill="#294c42"/>
+
+                        <path
+                            d="M145 198 L130 235 L140 255 L159 218Z"
+                            fill="#294c42"/>
+
+                        <!-- Buttons -->
+
+                        <circle cx="130" cy="255" r="3" fill="#c9a24e"/>
+                        <circle cx="130" cy="270" r="3" fill="#c9a24e"/>
+
+                    </svg>
+
+                </div>
+
+                <h3>
+                    Jomon
+                </h3>
+
+                <p>
+                    The Groom
+                </p>
+
+            </div>
+
+
+            <div class="couple-heart">
+                ♥
+            </div>
+
+
+            <!-- BRIDE -->
+
+            <div class="person">
+
+                <div class="character">
+
+                    <svg class="bride-svg"
+                         viewBox="0 0 260 320"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <!-- Sparkles -->
+
+                        <g fill="#c9a24e">
+                            <text class="sparkle" x="25" y="90" font-size="18">✦</text>
+                            <text class="sparkle" x="220" y="70" font-size="17">✦</text>
+                            <text class="sparkle" x="215" y="210" font-size="12">✦</text>
+                        </g>
+
+                        <!-- Veil -->
+
+                        <path
+                            class="veil"
+                            d="M72 135
+                               Q130 55 188 135
+                               L205 290
+                               Q130 320 55 290Z"
+                            fill="rgba(255,255,255,.48)"
+                            stroke="#ffffff"
+                            stroke-width="2"/>
+
+                        <!-- Hair -->
+
+                        <path
+                            d="M91 130
+                               C82 83 104 62 130 65
+                               C157 64 178 87 169 130
+                               C157 110 146 103 130 103
+                               C114 103 102 111 91 130Z"
+                            fill="#33241f"/>
+
+                        <!-- Face -->
+
+                        <ellipse
+                            cx="130"
+                            cy="139"
+                            rx="40"
+                            ry="48"
+                            fill="#d99472"/>
+
+                        <!-- Hair sides -->
+
+                        <path
+                            d="M91 125
+                               Q75 180 102 204
+                               L115 181
+                               L105 130Z"
+                            fill="#33241f"/>
+
+                        <path
+                            d="M169 125
+                               Q185 180 158 204
+                               L145 181
+                               L155 130Z"
+                            fill="#33241f"/>
+
+                        <!-- Eyes -->
+
+                        <path
+                            d="M109 143 Q116 138 122 143"
+                            fill="none"
+                            stroke="#3b2924"
+                            stroke-width="2"/>
+
+                        <path
+                            d="M138 143 Q144 138 151 143"
+                            fill="none"
+                            stroke="#3b2924"
+                            stroke-width="2"/>
+
+                        <!-- Nose -->
+
+                        <path
+                            d="M130 147 L126 160 L133 161"
+                            fill="none"
+                            stroke="#9b5947"
+                            stroke-width="2"/>
+
+                        <!-- Smile -->
+
+                        <path
+                            d="M119 171 Q130 179 141 171"
+                            fill="none"
+                            stroke="#914839"
+                            stroke-width="2"/>
+
+                        <!-- Necklace -->
+
+                        <path
+                            d="M103 185 Q130 205 157 185"
+                            fill="none"
+                            stroke="#c9a24e"
+                            stroke-width="4"/>
+
+                        <!-- Necklace jewel -->
+
+                        <circle
+                            cx="130"
+                            cy="199"
+                            r="5"
+                            fill="#efd58a"/>
+
+                        <!-- Wedding Dress -->
+
+                        <path
+                            d="M105 190
+                               Q130 215 155 190
+                               C170 220 205 250 218 310
+                               L42 310
+                               C55 250 90 220 105 190Z"
+                            fill="#ffffff"
+                            stroke="#dfd8c8"
+                            stroke-width="2"/>
+
+                        <!-- Dress detail -->
+
+                        <path
+                            d="M85 240 Q130 260 175 240"
+                            fill="none"
+                            stroke="#e6d8b8"
+                            stroke-width="2"/>
+
+                        <path
+                            d="M65 280 Q130 300 195 280"
+                            fill="none"
+                            stroke="#e6d8b8"
+                            stroke-width="2"/>
+
+                        <!-- Bouquet -->
+
+                        <g class="flower">
+
+                            <circle cx="73" cy="238" r="12" fill="#efd58a"/>
+                            <circle cx="88" cy="232" r="12" fill="#f4e5b2"/>
+                            <circle cx="84" cy="248" r="12" fill="#e5c979"/>
+                            <circle cx="69" cy="249" r="12" fill="#f4e5b2"/>
+
+                            <path
+                                d="M77 250 L72 285"
+                                stroke="#5e795d"
+                                stroke-width="5"/>
+
+                        </g>
+
+                        <!-- Earrings -->
+
+                        <circle cx="92" cy="163" r="4" fill="#efd58a"/>
+                        <circle cx="168" cy="163" r="4" fill="#efd58a"/>
+
+                    </svg>
+
+                </div>
+
+                <h3>
+                    Josmy
+                </h3>
+
+                <p>
+                    The Bride
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COUNTDOWN
+========================= -->
+
+<section class="countdown">
+
+    <div class="section-inner">
+
+        <div class="section-title">
+
+            <small>
+                Counting the Moments
+            </small>
+
+            <h2>
+                Until We Say "I Do"
+            </h2>
+
+        </div>
+
+
+        <div class="timer">
+
+            <div class="time-box">
+                <strong id="days">00</strong>
+                <span>Days</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="hours">00</strong>
+                <span>Hours</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="minutes">00</strong>
+                <span>Minutes</span>
+            </div>
+
+            <div class="time-box">
+                <strong id="seconds">00</strong>
+                <span>Seconds</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WEDDING CEREMONY
+========================= -->
+
+<section class="event">
+
+    <div class="section-inner">
+
+        <div class="section-title">
+
+            <small>
+                Join Us
+            </small>
+
+            <h2>
+                Wedding Ceremony
+            </h2>
+
+        </div>
+
+
+        <div class="event-card">
+
+            <div class="event-icon">
+                ♡
+            </div>
+
+            <h3>
+                Holy Matrimony
+            </h3>
+
+            <div class="event-date">
+                24 APRIL 2027
+            </div>
+
+            <div class="event-location">
+
+                <strong>
+                    St. Mary's Syro Malabar Church
+                </strong>
+
+                <br>
+
+                Mundupalam, Thengana
+                <br>
+                Changanassery, Kerala
+
+            </div>
+
+
+            <a
+                class="map-btn"
+                href="https://www.google.com/maps/search/?api=1&query=St.+Mary%27s+Syro+Malabar+Church+Mundupalam+Thengana+Changanassery+Kerala"
+                target="_blank">
+
+                View Location
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     TIMELINE
+========================= -->
+
+<section class="timeline">
+
+    <div class="section-inner">
+
+        <div class="section-title">
+
+            <small>
+                Our Special Day
+            </small>
+
+            <h2>
+                Wedding Day
+            </h2>
+
+        </div>
+
+
+        <div class="timeline-container">
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    Gathering
+                </h3>
+
+                <p>
+                    Family and friends come together
+                    to share this beautiful occasion.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    Holy Matrimony
+                </h3>
+
+                <p>
+                    Jomon and Josmy exchange their
+                    vows and begin their married life.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    Blessings
+                </h3>
+
+                <p>
+                    A moment filled with prayers,
+                    love and blessings.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <h3>
+                    A New Beginning
+                </h3>
+
+                <p>
+                    Two hearts become one as
+                    a beautiful new chapter begins.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RSVP
+========================= -->
+
+<section class="rsvp">
+
+    <div class="section-inner">
+
+        <div class="section-title">
+
+            <small>
+                Be Our Guest
+            </small>
+
+            <h2>
+                We Would Love to See You
+            </h2>
+
+        </div>
+
+
+        <p>
+            Your presence and blessings will make
+            our special day even more meaningful.
+        </p>
+
+
+        <!-- Replace 919876543210 with your actual WhatsApp number -->
+
+        <a
+            class="rsvp-btn"
+            href="https://wa.me/919876543210?text=Hello%20Jomon%20%26%20Josmy%2C%20I%20would%20love%20to%20attend%20your%20wedding."
+            target="_blank">
+
+            RSVP on WhatsApp
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-names">
+        Jomon & Josmy
+    </div>
+
+    <p>
+        24 · APRIL · 2027
+    </p>
+
+    <p>
+        With Love ♥
+    </p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   OPEN INVITATION
+========================= */
+
+function openInvitation() {
+
+    document
+        .getElementById("opening")
+        .classList.add("hide");
+
+    startMusic();
+
+    createConfetti();
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+const music = document.getElementById("weddingMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+let musicPlaying = false;
+
+
+function startMusic() {
+
+    music.volume = 0.45;
+
+    music.play()
+        .then(() => {
+
+            musicPlaying = true;
+
+            musicBtn.classList.add("playing");
+
+            musicBtn.innerHTML = "🔊";
+
+        })
+        .catch(() => {
+
+            musicPlaying = false;
+
+        });
+
+}
+
+
+function toggleMusic() {
+
+    if (musicPlaying) {
+
+        music.pause();
+
+        musicPlaying = false;
+
+        musicBtn.classList.remove("playing");
+
+        musicBtn.innerHTML = "🎵";
+
+    } else {
+
+        music.play()
+            .then(() => {
+
+                musicPlaying = true;
+
+                musicBtn.classList.add("playing");
+
+                musicBtn.innerHTML = "🔊";
+
+            });
+
+    }
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+const weddingDate =
+    new Date("April 24, 2027 00:00:00").getTime();
+
+
+function updateCountdown() {
+
+    const now = new Date().getTime();
+
+    const distance = weddingDate - now;
+
+
+    if (distance <= 0) {
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        return;
+
+    }
+
+
+    const days =
+        Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours =
+        Math.floor(
+            (distance % (1000 * 60 * 60 * 24))
+            / (1000 * 60 * 60)
+        );
+
+    const minutes =
+        Math.floor(
+            (distance % (1000 * 60 * 60))
+            / (1000 * 60)
+        );
+
+    const seconds =
+        Math.floor(
+            (distance % (1000 * 60))
+            / 1000
+        );
+
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+}
+
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
+
+
+/* =========================
+   GOLD PARTICLES
+========================= */
+
+for (let i = 0; i < 45; i++) {
+
+    const particle = document.createElement("div");
+
+    particle.className = "particle";
+
+    particle.style.left =
+        Math.random() * 100 + "vw";
+
+    particle.style.animationDuration =
+        (7 + Math.random() * 12) + "s";
+
+    particle.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    particle.style.opacity =
+        .2 + Math.random() * .7;
+
+    document.body.appendChild(particle);
+
+}
+
+
+/* =========================
+   FALLING PETALS
+========================= */
+
+function createPetal() {
+
+    const petal = document.createElement("div");
+
+    petal.className = "petal";
+
+    petal.innerHTML = "❀";
+
+    petal.style.left =
+        Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+        (12 + Math.random() * 14) + "px";
+
+    petal.style.animationDuration =
+        (6 + Math.random() * 7) + "s";
+
+    document.body.appendChild(petal);
+
+
+    setTimeout(() => {
+
+        petal.remove();
+
+    }, 14000);
+
+}
+
+
+setInterval(createPetal, 900);
+
+
+/* =========================
+   CONFETTI
+========================= */
+
+function createConfetti() {
+
+    const symbols = [
+        "✦",
+        "✧",
+        "♥",
+        "❀"
+    ];
+
+
+    for (let i = 0; i < 70; i++) {
+
+        const piece =
+            document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.innerHTML =
+            symbols[Math.floor(
+                Math.random() * symbols.length
+            )];
+
+        piece.style.left =
+            Math.random() * 100 + "vw";
+
+        piece.style.fontSize =
+            (8 + Math.random() * 12) + "px";
+
+        piece.style.color =
+            Math.random() > .5
+                ? "#efd58a"
+                : "#ffffff";
+
+        piece.style.animationDuration =
+            (2 + Math.random() * 3) + "s";
+
+        piece.style.animationDelay =
+            Math.random() * .8 + "s";
+
+
+        document.body.appendChild(piece);
+
+
+        setTimeout(() => {
+
+            piece.remove();
+
+        }, 5000);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
